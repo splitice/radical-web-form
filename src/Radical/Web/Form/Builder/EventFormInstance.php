@@ -4,6 +4,7 @@ use Radical\Web\Form\Security\Key;
 
 use Radical\Web\Form\Builder\FormInstance;
 use Radical\Web\Form\Security\KeyStorage;
+use Radical\Web\Form\Element\HiddenInput;
 
 class EventFormInstance extends FormInstance {
 	const EVENT_HANDLER = '__rp_eventA';
@@ -11,6 +12,10 @@ class EventFormInstance extends FormInstance {
 	
 	private $eventHandler;
 	private $eventMethod;
+	
+	private function getSecurityFieldElement($securityField){
+		return new HiddenInput($securityField->getField(), $securityField->id);
+	}
 	
 	function __construct($handler,$method='execute'){
 		parent::__construct();
@@ -27,7 +32,7 @@ class EventFormInstance extends FormInstance {
 		$this->hidden(self::EVENT_METHOD,base64_encode($securityField->Encrypt($this->eventMethod)));
 		
 		//Security event
-		$this->Add($securityField->getElement());
+		$this->Add($this->getSecurityFieldElement($securityField));
 		
 		//Ensure its post, security fields only work on post requests currently.
 		$this->method('post');

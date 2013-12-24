@@ -7,6 +7,7 @@
 	<buildpathentry kind="src" path="vendor/splitice/radical-common/src"/>
 	<buildpathentry kind="src" path="vendor/symfony/filesystem"/>
 	<buildpathentry kind="src" path="vendor/symfony/validator"/>
+	<buildpathentry kind="src" path="vendor/splitice/radical-web-event/src"/>
 	<buildpathentry kind="src" path="vendor/splitice/radical-file/src"/>
 	<buildpathentry kind="src" path="vendor/splitice/radical-web/src"/>
 	<buildpathentry kind="src" path="vendor/symfony/translation"/>
