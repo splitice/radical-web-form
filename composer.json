@@ -14,5 +14,6 @@
 		"php" : ">=5.4",
 		"splitice/radical-web" : "dev-master",
 		"splitice/radical-db" : "dev-master"
-	}
+	},
+	"minimum-stability" : "dev"
 }
