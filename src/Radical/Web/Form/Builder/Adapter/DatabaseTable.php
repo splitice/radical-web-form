@@ -5,6 +5,7 @@ use Radical\Web\Form\Element;
 use Radical\Database\Model\Table;
 use Radical\Web\Form\Builder\Internal;
 use Radical\Database\Model\TableReferenceInstance;
+use Radical\Web\Form\DatabaseFormElement;
 
 class DatabaseTable implements IAdapter {
 	protected $table;
@@ -18,7 +19,7 @@ class DatabaseTable implements IAdapter {
 		
 		$tableManagement = $this->table->getTableManagement();
 		foreach($tableManagement->getColumns() as $colName => $col){
-			$row[$colName] = $col->getFormElement();
+			$row[$colName] = $col->getFormElement(DatabaseFormElement::get($col->getType()));
 		}
 
 		return $row;
