@@ -14,7 +14,7 @@ class EventFormInstance extends FormInstance {
 	private $eventMethod;
 	
 	private function getSecurityFieldElement($securityField){
-		return new HiddenInput($securityField->getField(), $securityField->id);
+		return new HiddenInput($securityField->getField(), $securityField->getId());
 	}
 	
 	function __construct($handler,$method='execute'){
