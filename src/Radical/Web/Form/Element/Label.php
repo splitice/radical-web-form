@@ -6,9 +6,11 @@ use Radical\Utility\HTML\Element;
 class Label extends Element {
 	protected $name;
 	protected $element;
-	
-	function __construct($name,Internal\FormElementBase $element){
+	protected $before;
+
+	function __construct($name,Internal\FormElementBase $element, $before = false){
 		$this->element = $element;
+        $this->before = $before;
 		
 		if($element instanceof CheckBox){
 			$element->html_override('');
@@ -32,12 +34,16 @@ class Label extends Element {
 			$this->element->html_override(null);
 
 			$inner = $this->inner;
-			$this->inner .= (string)$this->element;
+            if($this->before){
+                $this->inner = (string)$this->element. $this->inner;
+            }else{
+			    $this->inner .= (string)$this->element;
+            }
 
 			$this->element->html_override('');
 			
 			$ret = parent::__toString();
-			
+
 			$this->inner = $inner;
 			
 			return $ret;
