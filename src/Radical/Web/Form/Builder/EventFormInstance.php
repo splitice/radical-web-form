@@ -36,7 +36,9 @@ class EventFormInstance extends FormInstance {
 		
 		//Ensure its post, security fields only work on post requests currently.
 		$this->method('post');
-		$this->action('?'.$_SERVER['QUERY_STRING']);
+        if(isset($_SERVER['QUERY_STRING'])) {
+            $this->action('?' . $_SERVER['QUERY_STRING']);
+        }
 	}
 	
 	function string_before(){
