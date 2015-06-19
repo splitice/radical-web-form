@@ -1,11 +1,11 @@
 <?php
 namespace Radical\Web\Form\Builder\Adapter;
 
-use Radical\Web\Form\Element;
 use Radical\Database\Model\Table;
-use Radical\Web\Form\Builder\Internal;
 use Radical\Database\Model\TableReferenceInstance;
+use Radical\Web\Form\Builder\Internal;
 use Radical\Web\Form\DatabaseFormElement;
+use Radical\Web\Form\Element;
 
 class DatabaseTable implements IAdapter {
 	protected $table;

@@ -1,10 +1,8 @@
 <?php
 namespace Radical\Web\Form\Builder;
-use Radical\Web\Form\Security\Key;
-
-use Radical\Web\Form\Builder\FormInstance;
-use Radical\Web\Form\Security\KeyStorage;
 use Radical\Web\Form\Element\HiddenInput;
+use Radical\Web\Form\Security\Key;
+use Radical\Web\Form\Security\KeyStorage;
 
 class EventFormInstance extends FormInstance {
 	const EVENT_HANDLER = '__rp_eventA';
