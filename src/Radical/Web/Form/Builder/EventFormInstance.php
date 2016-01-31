@@ -24,9 +24,9 @@ class EventFormInstance extends FormInstance {
 		
 		//Build security field
 		$securityField = KeyStorage::newKey(array($this,'Execute'));
-		
+
 		//Event details
-		$this->hidden(self::EVENT_HANDLER,$securityField->Store(serialize($handler)));
+		$this->hidden(self::EVENT_HANDLER,$securityField->Store(@serialize($handler)));
 		$this->hidden(self::EVENT_METHOD,base64_encode($securityField->Encrypt($this->eventMethod)));
 		
 		//Security event
