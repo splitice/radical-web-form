@@ -13,8 +13,8 @@ interface IFormControls {
 	function radiobox($name, $value, $checked = null);
 	function check($name, $value, $checked = null);
 	function checkbox($name, $value, $checked = null);
-	function select($name, $value = array());
-	function selectbox($name, $value = array());
+	function select($name, $values = array(), $selected = null);
+	function selectbox($name, $values = array(), $selected = null);
 	function submit($text = 'Submit');
 	function reset($text = 'Reset');
 	function button($text, $type = 'button');

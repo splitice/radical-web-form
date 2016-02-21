@@ -65,11 +65,15 @@ class FormCommon implements IFormControls {
 		return $this->_R(new Element\CheckBox($name, $value, $checked));
 	}
 	
-	function select($name, $value = array()){
-		return $this->selectbox($name, $value);
+	function select($name, $values = array(), $selected = null){
+		return $this->selectbox($name, $values, $selected);
 	}
-	function selectbox($name, $value = array()){
-		return $this->_R(new Element\SelectBox($name, $value));
+	function selectbox($name, $values = array(), $selected = null){
+		$select = new Element\SelectBox($name, $values);
+		if($selected){
+			$select->setValue($selected);
+		}
+		return $this->_R($select);
 	}
 	
 	function submit($text = 'Submit'){
