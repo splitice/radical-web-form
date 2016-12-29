@@ -69,10 +69,7 @@ class FormCommon implements IFormControls {
 		return $this->selectbox($name, $values, $selected);
 	}
 	function selectbox($name, $values = array(), $selected = null){
-		$select = new Element\SelectBox($name, $values);
-		if($selected){
-			$select->setValue($selected);
-		}
+		$select = new Element\SelectBox($name, $values, $selected);
 		return $this->_R($select);
 	}
 	
