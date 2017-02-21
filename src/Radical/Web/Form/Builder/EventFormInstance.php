@@ -1,8 +1,8 @@
 <?php
 namespace Radical\Web\Form\Builder;
 use Radical\Web\Form\Element\HiddenInput;
-use Radical\Web\Form\Security\Key;
-use Radical\Web\Form\Security\KeyStorage;
+use Radical\Web\Security\Adapter\ISecurityAdapter;
+use Radical\Web\Security\Keys\Key;
 
 class EventFormInstance extends FormInstance {
 	const EVENT_HANDLER = '__rp_eventA';
@@ -11,7 +11,7 @@ class EventFormInstance extends FormInstance {
 	private $eventHandler;
 	private $eventMethod;
 	
-	private function getSecurityFieldElement($securityField){
+	private function getSecurityFieldElement(Key $securityField){
 		return new HiddenInput($securityField->getField(), $securityField->getId());
 	}
 	
@@ -23,7 +23,9 @@ class EventFormInstance extends FormInstance {
 		$this->eventMethod = $method;
 		
 		//Build security field
-		$securityField = KeyStorage::newKey(array($this,'Execute'));
+		/** @var ISecurityAdapter $ks */
+		$ks = \Splitice\ResourceFactory::getInstance()->get('event_storage');
+		$securityField = $ks->newKey(array($this,'Execute'));
 
 		//Event details
 		$this->hidden(self::EVENT_HANDLER,$securityField->Store(@serialize($handler)));

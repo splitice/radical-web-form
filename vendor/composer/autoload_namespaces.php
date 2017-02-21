@@ -7,8 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Symfony\\Component\\Validator\\' => array($vendorDir . '/symfony/validator'),
-    'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
-    'Symfony\\Component\\PropertyAccess\\' => array($vendorDir . '/symfony/property-access'),
     'Symfony\\Component\\Filesystem\\' => array($vendorDir . '/symfony/filesystem'),
-    'Radical' => array($baseDir . '/src', $vendorDir . '/splitice/radical-html/src', $vendorDir . '/splitice/radical-web-event/src', $vendorDir . '/splitice/radical-basic/src', $vendorDir . '/splitice/radical-net/src', $vendorDir . '/splitice/radical-web/src', $vendorDir . '/splitice/radical-db/src', $vendorDir . '/splitice/radical-file/src', $vendorDir . '/splitice/radical-common/src'),
+    'Splitice' => array($vendorDir . '/splitice/event-trait/src', $vendorDir . '/splitice/resource-factory/src'),
+    'Radical' => array($baseDir . '/src', $vendorDir . '/splitice/radical-common/src', $vendorDir . '/splitice/radical-errorhandling/src', $vendorDir . '/splitice/radical-basic/src', $vendorDir . '/splitice/radical-db/src', $vendorDir . '/splitice/radical-cli/src', $vendorDir . '/splitice/radical-file/src', $vendorDir . '/splitice/radical-net/src', $vendorDir . '/splitice/radical-html/src', $vendorDir . '/splitice/radical-web/src', $vendorDir . '/splitice/radical-web-event/src'),
 );
